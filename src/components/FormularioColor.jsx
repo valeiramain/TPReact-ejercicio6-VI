@@ -22,14 +22,14 @@ const FormularioColor = () => {
     }
     return (
         <>
-            <Form className="container mt-3 mb-5" onSubmit={handleSubmit(agregarColor)}>
+            <Form className="container mt-4 mb-5" onSubmit={handleSubmit(agregarColor)}>
                 <Form.Group
                     className="d-flex gap-2"
                     controlId="exampleForm.ControlInput1"
                 >
                     <div className="cuadrado border"></div>
                     <Form.Control type="text" placeholder="Ingrese color (Ej:Red)" {
-                        ...register('nombreColor',{
+                        ...register("nombreColor",{
                             required: 'El color debe ser ingresado en ingles o hexadecimal',
                             minLength:{
                                 value: 3,
@@ -47,7 +47,7 @@ const FormularioColor = () => {
                 </Form.Group>
                 <Form.Text className="text-warning">{errors.nombreColor?.message}</Form.Text>
             </Form>
-            <ListaColores></ListaColores>
+            <ListaColores colores={colores}></ListaColores>
         </>
     );
 };

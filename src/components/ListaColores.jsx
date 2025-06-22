@@ -2,12 +2,14 @@
 import { Container } from 'react-bootstrap';
 import ItemColor from './ItemColor'
 
-const ListaColores = () => {
+const ListaColores = ({ colores }) => {
     return (
         <>
             <Container>
-                <section className='row row-cols-1 row-cols-md-2 row-cols-lg-3'>
-                    <ItemColor></ItemColor>
+                <section className='row row-cols-1 row-cols-md-3'>
+                    {colores.map((color, indice) => (
+                        <ItemColor key={indice} color={color}></ItemColor>
+                    ))}
                 </section>
             </Container>
         </>

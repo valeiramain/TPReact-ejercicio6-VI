@@ -3,11 +3,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 
-const ItemColor = () => {
+const ItemColor = ({color}) => {
     return (
         <div className="col my-3">
             <Card className='sombraCard'>
-                <Card.Header as="h5">Color XXXX</Card.Header>
+                <Card.Header as="h5">{color}</Card.Header>
                 <Card.Body className="d-flex justify-content-center bg-tertuary" >
                     <Card.Text className='cuadrado border'>
 
