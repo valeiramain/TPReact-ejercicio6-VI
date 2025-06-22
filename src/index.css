@@ -11,12 +11,11 @@ main{
 .cuadrado{
     height: 45px;
     width: 50px;
-    color: blueviolet;
+    color: #8a2be2;
     display: flex;
     justify-content: center;
 
 }
-
-.sombraCard{
-     box-shadow: '0 4px 8px rgba(255, 255, 255, 0.1)
+.sombraCard {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
