@@ -14,10 +14,16 @@ const FormularioColor = () => {
     // const tareasLocalStorage = JSON.parse(localStorage.getItem("tareas")) || [];
     const [colores, setColores] = useState([]);
 
+    // state que contiene el color ingresado
+    const [color, setColor] = useState('');
+
     const agregarColor = (dato) => {
         console.log('desde agregar color')
         console.log(dato)
-        setColores([...colores,dato.nombreColor])
+        //color para pintar cuadrado
+        const colorIngresado = dato.nombreColor.trim();
+        setColor(colorIngresado);
+        setColores([...colores, colorIngresado])
         reset()
     }
     return (
@@ -27,20 +33,25 @@ const FormularioColor = () => {
                     className="d-flex gap-2"
                     controlId="exampleForm.ControlInput1"
                 >
-                    <div className="cuadrado border"></div>
+                    <div
+                        className="cuadrado border"
+                        style={{
+                            backgroundColor: color,
+                        }}
+                    ></div>
                     <Form.Control type="text" placeholder="Ingrese color (Ej:Red)" {
-                        ...register("nombreColor",{
+                        ...register("nombreColor", {
                             required: 'El color debe ser ingresado en ingles o hexadecimal',
-                            minLength:{
+                            minLength: {
                                 value: 3,
-                                message:'El color debe tener más de 3 caracteres'
+                                message: 'El color debe tener más de 3 caracteres'
                             },
-                            maxLength:{
+                            maxLength: {
                                 value: 8,
-                                message:'El color debe tener como máximo 8 caracteres'
+                                message: 'El color debe tener como máximo 8 caracteres'
                             },
                         })
-                        }/>
+                    } />
                     <Button variant="info" type="submit">
                         Agregar
                     </Button>

@@ -9,8 +9,9 @@ const ItemColor = ({color}) => {
             <Card className='sombraCard'>
                 <Card.Header as="h5">{color}</Card.Header>
                 <Card.Body className="d-flex justify-content-center bg-tertuary" >
-                    <Card.Text className='cuadrado border'>
-
+                    <Card.Text className='cuadrado border' style={{
+                            backgroundColor: color,
+                        }}>
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className="text-muted">
