@@ -18,8 +18,6 @@ const FormularioColor = () => {
     const [color, setColor] = useState('');
 
     useEffect(() => {
-        // useEffect ejecuta automaticamente el codigo cuando sucede el ciclo de vida (montaje y actualizacion)
-        console.log('✔ useEffect: guardando en localStorage', colores);
         localStorage.setItem('colores', JSON.stringify(colores))
     }, [colores]);
 
@@ -27,19 +25,27 @@ const FormularioColor = () => {
     const agregarColor = (dato) => {
         //color para pintar cuadrado
         const colorIngresado = dato.nombreColor.trim();
+
+        // Verificar si ya existe
+        const existe = colores.includes(colorIngresado);
+
+        if (existe) {
+            alert("⚠️ Ya existe un color con ese nombre");
+            return;
+        }
+
         setColor(colorIngresado);
         setColores([...colores, colorIngresado])
         reset()
     }
 
     const borrarColor = (nombreColor) => {
-        console.log('en borrar color' + nombreColor)
         // filtrar el state con array tareas
         const coloresFiltrados = colores.filter((itemColor) => itemColor !== nombreColor);
-        console.log(coloresFiltrados)
         // actualizar el state
         setColores(coloresFiltrados);
     };
+    
     return (
         <>
             <Form className="container mt-4 mb-5" onSubmit={handleSubmit(agregarColor)}>
