@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 
-const ItemColor = ({color}) => {
+const ItemColor = ({color, borrarColor}) => {
     return (
         <div className="col my-3">
             <Card className='sombraCard'>
@@ -15,7 +15,7 @@ const ItemColor = ({color}) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className="text-muted">
-                    <Button variant="danger" className="ms-auto d-block" >Borrar</Button>
+                    <Button variant="danger" className="ms-auto d-block shadow" onClick={()=>borrarColor(color)}>Borrar</Button>
                 </Card.Footer>
             </Card>
         </div>
